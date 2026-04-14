@@ -6,6 +6,7 @@ import { RouterProvider } from "react-router";
 import RootLayout from './layout/RootLayout';
 import Stats from './pages/Stats';
 import Timeline from './pages/Timeline';
+import Home from './pages/Home';
 
 const router = createBrowserRouter([
   {
@@ -14,7 +15,7 @@ const router = createBrowserRouter([
    children:[
     {
       path: "/",
-      element: <div>Home</div>,
+      element: <Home/>,
     },
     {
       path: "/stats",

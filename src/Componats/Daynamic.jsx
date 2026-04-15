@@ -2,19 +2,21 @@ import React from "react";
 import { useState, useEffect } from "react";
 import Frind from '../app/frindrendaring/Frind'
 
-// import { ClipLoader } from "react-spinners";
+ import { ClipLoader } from "react-spinners";
 
 const Daynamic = () => {
    const [data, setdata] = useState([]);
-        // const [loading, setloading] = useState(true)
+         const [loading, setloading] = useState(true)
        
     
         useEffect(() => {
        const fetchData = async () =>{
         const res = await fetch('/data.json')
         const data = await res.json()
-        setdata(data);
-        // setloading(false)
+          setTimeout(() => {
+          setdata(data);
+         setloading(false);
+          }, 2000);
        }    
        fetchData()
         }, [])
@@ -52,7 +54,7 @@ const Daynamic = () => {
             <p className="text-center">Interactions This Month</p>
           </div>
         </div>
-        <Frind data={data} />
+        {loading? <div className="flex justify-center"> <ClipLoader/> </div> :  <Frind data={data} />}
     </>
   );
 };

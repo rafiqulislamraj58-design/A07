@@ -1,4 +1,6 @@
 import React from 'react'
+import { Link } from 'react-router'
+
 
 
 const Frind = ({data}) => {
@@ -7,11 +9,12 @@ const Frind = ({data}) => {
       <div className=' grid grid-cols-4 gap-2.5 mt-5 mb-5 container mx-auto'>
          {
         data.map((Frind,index)=>{
-          return <div key={index} className="card bg-base-100 w-full shadow-sm">
+          return <Link to={`/Frind/${Frind.id}`} key={index} className="card bg-base-100 w-full shadow-sm ">
   <figure>
     <img
-      src={Frind.image}
-      alt="Shoes" />
+      src={Frind.picture}
+      className='rounded-full'
+      alt="Person" />
   </figure>
   <div className="card-body  justify-center items-center">
     <h2 className="card-title">{Frind.name}</h2>
@@ -25,7 +28,7 @@ const Frind = ({data}) => {
     </div>
     <button className={`btn btn-sm w-32 rounded-full  ${Frind.status==="almost due"? 'btn-warning px-3':Frind.status==="overdue"?'btn-error px-3':'btn-success px-3'}`} >{Frind.status}</button>
   </div>
-</div>
+</Link>
         })
        }
       </div>

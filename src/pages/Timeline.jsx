@@ -1,9 +1,51 @@
-import React from 'react'
+import { useContext } from "react";
+import { TimelineContext } from "../context/TimelineContext";
+import { MdCall, MdMessage } from "react-icons/md";
+import { FaVideo } from "react-icons/fa";
 
 const Timeline = () => {
-  return (
-    <div>Timeline</div>
-  )
-}
+  const { timeline } = useContext(TimelineContext);
 
-export default Timeline
+  return (
+    <div className="p-6">
+      <h1 className="text-2xl font-bold mb-4">Timeline</h1>
+
+      <div className="space-y-4">
+        {timeline.length === 0 ? (
+          <p>No activity yet</p>
+        ) : (
+          timeline.map((item, index) => {
+            let icon;
+            let title;
+
+            if (item.type === "call") {
+              icon = <MdCall />;
+              title = `Call with ${item.name}`;
+            } else if (item.type === "message") {
+              icon = <MdMessage />;
+              title = `Text with ${item.name}`;
+            } else {
+              icon = <FaVideo />;
+              title = `Video with ${item.name}`;
+            }
+
+            return (
+              <div
+                key={index}
+                className="flex items-center gap-3 p-3 border rounded-lg shadow"
+              >
+                <div className="text-xl">{icon}</div>
+                <div>
+                  <p className="font-semibold">{title}</p>
+                  <p className="text-sm text-gray-500">{item.time}</p>
+                </div>
+              </div>
+            );
+          })
+        )}
+      </div>
+    </div>
+  );
+};
+
+export default Timeline;

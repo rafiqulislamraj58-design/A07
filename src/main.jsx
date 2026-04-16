@@ -9,6 +9,7 @@ import Timeline from './pages/Timeline';
 import Home from './pages/Home';
 import Error from '../src/Componats/shared/Error';
 import FrindDetalis from './pages/FrindDetalis';
+import TimelineProvider from "./context/TimelineContext";
 
 
 const router = createBrowserRouter([
@@ -44,8 +45,10 @@ const router = createBrowserRouter([
 
 
 
-createRoot(document.getElementById('root')).render(
+createRoot(document.getElementById("root")).render(
   <StrictMode>
-  <RouterProvider router={router} />,
+    <TimelineProvider>
+      <RouterProvider router={router} />
+    </TimelineProvider>
   </StrictMode>
-)
+);

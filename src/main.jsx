@@ -10,6 +10,7 @@ import Home from './pages/Home';
 import Error from '../src/Componats/shared/Error';
 import FrindDetalis from './pages/FrindDetalis';
 import TimelineProvider from "./context/TimelineContext";
+import { Toaster } from "react-hot-toast";
 
 
 const router = createBrowserRouter([
@@ -33,8 +34,6 @@ const router = createBrowserRouter([
       path: "/Frind/:id",
       element: <FrindDetalis/>,
     },
-    
-    
    ],
    errorElement: <Error/>,
   },
@@ -49,6 +48,7 @@ createRoot(document.getElementById("root")).render(
   <StrictMode>
     <TimelineProvider>
       <RouterProvider router={router} />
+      <Toaster />
     </TimelineProvider>
   </StrictMode>
 );

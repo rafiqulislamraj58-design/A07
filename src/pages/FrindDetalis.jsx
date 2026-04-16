@@ -6,6 +6,7 @@ import { MdDelete, MdCall, MdMessage } from "react-icons/md";
 import Relation from "../Componats/Relation";
 import { useContext } from "react";
 import { TimelineContext } from "../context/TimelineContext";
+import toast from "react-hot-toast";
 
 const FrindDetalis = () => {
   const { id } = useParams();
@@ -21,6 +22,7 @@ const FrindDetalis = () => {
   });
 
   if (frind?.phone) window.location.href = `tel:${frind.phone}`;
+  toast.success(`Calling ${frind.name} call`);
 };
 
 const handelMassage = () => {
@@ -29,6 +31,7 @@ const handelMassage = () => {
     name: frind.name,
     time: new Date().toLocaleString(),
   });
+  toast.success(`massage ${frind.name} massage`);
 };
 
 const handelplay = () => {
@@ -37,6 +40,7 @@ const handelplay = () => {
     name: frind.name,
     time: new Date().toLocaleString(),
   });
+  toast.success(`Video call with ${frind.name} vedio`);
 };
   useEffect(() => {
     fetch("/data.json")

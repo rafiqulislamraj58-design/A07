@@ -28,7 +28,7 @@ const Daynamic = () => {
   return (
     <>
       
-        <div className=" grid grid-cols-4 gap-3.5 container mx-auto mt-5 mb-5">
+        <div className=" grid md:grid-cols-2  lg:grid-cols-4 gap-3.5 container mx-auto mt-5 mb-5">
           <div className="shadow w-full p-6">
             <h1 className="text-center font-bold text-2xl text-[#244D3F]">
               {data.length}

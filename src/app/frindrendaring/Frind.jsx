@@ -6,7 +6,7 @@ import { Link } from 'react-router'
 const Frind = ({data}) => {
   return (
     <>
-      <div className=' grid grid-cols-4 gap-2.5 mt-5 mb-5 container mx-auto'>
+      <div className=' grid md:grid-cols-2 lg:grid-cols-4 gap-2.5 mt-5 mb-5 container mx-auto'>
          {
         data.map((Frind,index)=>{
           return <Link to={`/Frind/${Frind.id}`} key={index} className="card bg-base-100 w-full shadow-sm ">

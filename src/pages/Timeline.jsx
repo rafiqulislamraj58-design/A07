@@ -3,6 +3,7 @@ import { TimelineContext } from "../context/TimelineContext";
 import { MdCall, MdMessage } from "react-icons/md";
 import { FaVideo } from "react-icons/fa";
 
+
 const Timeline = () => {
   const { timeline } = useContext(TimelineContext);
   const [filter, setfilter] = useState("");
